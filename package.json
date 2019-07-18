@@ -1,0 +1,62 @@
+{
+  "name": "green-button-data-converter",
+  "description": "Green button data writer and parser",
+  "version": "1.0.0",
+  "author": {
+    "name": "petr279k",
+    "email": "peter279k@itri.org.tw"
+  },
+  "contributors": [
+    {
+      "name": "Dingding Chang",
+      "email": "jacksonm@inrupt.com"
+    },
+    {
+      "name": "Zonwei",
+      "email": "me@nicolagreco.com"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solid/node-solid-server"
+  },
+  "homepage": "https://github.com/solid/node-solid-server",
+  "bugs": "https://github.com/solid/node-solid-server/issues",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "uuid": "^3.3.2",
+    "xmlbuilder": "^13.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1"
+  },
+  "pre-commit": [
+    "standard"
+  ],
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "mocha --reporter dot"
+  },
+  "nyc": {
+    "reporter": [
+      "html",
+      "text-summary"
+    ],
+    "cache": true
+  },
+  "standard": {
+    "globals": [
+      "after",
+      "afterEach",
+      "before",
+      "beforeEach",
+      "describe",
+      "it"
+    ]
+  },
+  "engines": {
+    "node": ">=10.0"
+  }
+}
