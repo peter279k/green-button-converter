@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <entry>
+        <id>urn:uuid:55F7B882-AF90-4DFC-9BFF-84E783764A1B</id>
+        <title/>
+        <content>
+            <IntervalBLock xmlns="http://naesb.org/espi">
+                <interval>
+                    <duration>86400</duration>
+                    <start>1563379200</start>
+                </interval>
+                <IntervalReading>
+                    <timePeriod>
+                        <duration>3600</duration>
+                        <start>2019-07-18 17:00:00</start>
+                    </timePeriod>
+                    <value>912</value>
+                </IntervalReading>
+                <IntervalReading>
+                    <timePeriod>
+                        <duration>3600</duration>
+                        <start>2019-07-18 18:00:00</start>
+                    </timePeriod>
+                    <value>900</value>
+                </IntervalReading>
+            </IntervalBLock>
+        </content>
+    </entry>
+</feed>
