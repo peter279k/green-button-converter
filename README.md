@@ -21,8 +21,7 @@ let expectedXmlHead = '<?xml version="1.0" encoding="utf-8"?>'
 let expectedFeed = '<feed xmlns="http://www.w3.org/2005/Atom">'
 let dataWriter = new DataWriter(options)
 
-assert.strictEqual(dataWriter.output().includes(expectedXmlHead), true)
-assert.strictEqual(dataWriter.output().includes(expectedFeed), true)
+console.log(dataWriter.output())
 ```
 
 It will have following result:
