@@ -7,20 +7,18 @@ To generate a Green button data format, you can use following code snippets:
 
 ```JS
 var DataWriter = require('green-button-data-converter').DataWriter
-let options = {
+var options = {
   'interval_duration': 86400,
   'time_period_duration': 3600,
-  'start_date': '2019-07-18 00:00:00',
+  'start_date': '2019-07-18 17:00:00',
   'interval_readings': [
     {date: '2019-07-18 17:00:00', mwh: 912},
-    {date: '2019-07-18 18:00:00', mwh: 900},
   ],
+  'power_of_ten_multiplier': 0,
+  'uom': 72,
 }
 
-let expectedXmlHead = '<?xml version="1.0" encoding="utf-8"?>'
-let expectedFeed = '<feed xmlns="http://www.w3.org/2005/Atom">'
-let dataWriter = new DataWriter(options)
-
+var dataWriter = new DataWriter(options)
 console.log(dataWriter.output())
 ```
 
