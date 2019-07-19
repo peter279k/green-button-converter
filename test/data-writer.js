@@ -62,9 +62,7 @@ describe('data-writer', function() {
       let expectedXmlHead = '<?xml version="1.0" encoding="utf-8"?>'
       let expectedFeed = '<feed xmlns="http://www.w3.org/2005/Atom">'
       let dataWriter = new DataWriter(options)
-      let result = dataWriter.output()
-
-      console.log(result)
+      let result = dataWriter.output(true)
 
       assert.strictEqual(result.includes(expectedXmlHead), true)
       assert.strictEqual(result.includes(expectedFeed), true)

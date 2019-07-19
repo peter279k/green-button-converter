@@ -19,7 +19,7 @@ var options = {
 }
 
 var dataWriter = new DataWriter(options)
-console.log(dataWriter.output())
+console.log(dataWriter.output(true))
 ```
 
 It will have following result:
