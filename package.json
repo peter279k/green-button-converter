@@ -1,7 +1,7 @@
 {
   "name": "green-button-data-converter",
   "description": "Green button data writer and parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": {
     "name": "petr279k",
     "email": "peter279k@gmail.com"
