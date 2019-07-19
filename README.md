@@ -1,5 +1,7 @@
 # Green Button Data Converter
 
+[![Build Status](https://travis-ci.org/peter279k/green-button-converter.svg?branch=master)](https://travis-ci.org/peter279k/green-button-converter)
+
 ## Usage
 To generate a Green button data format, you can use following code snippets:
 
