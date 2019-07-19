@@ -71,3 +71,7 @@ It will have following result:
     </entry>
 </feed>
 ```
+
+# References
+- http://green-button.github.io/build/
+- https://www.programmableweb.com/newshow-to-leverage-green-button-initiative-data-energy-consumption-apps/how-to/2015/08/17?page=2
