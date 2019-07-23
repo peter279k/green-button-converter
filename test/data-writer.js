@@ -1,5 +1,7 @@
 'use strict'
 
+var file = require('fs')
+var xmlParser = require('xml-parser')
 var assert = require('assert')
 var DataWriter = require('../lib/index').DataWriter
 var options = {
@@ -63,10 +65,33 @@ describe('data-writer', function() {
       let expectedFeed = '<feed xmlns="http://www.w3.org/2005/Atom">'
       let dataWriter = new DataWriter(options)
       let result = dataWriter.output(true)
-      console.log(result)
 
       assert.strictEqual(result.includes(expectedXmlHead), true)
       assert.strictEqual(result.includes(expectedFeed), true)
+
+      done()
+    })
+  })
+})
+
+describe('data-writer', function() {
+  describe('#output()', function() {
+    it('can validate Green Button XML Data tree', function(done) {
+      let xml = file.readFileSync(__dirname + '/./fixtures/test.xml', 'utf-8')
+      let result = xmlParser(xml)
+
+      assert.strictEqual(result.root.name, 'feed')
+      assert.strictEqual(result.root.attributes.xmlns, 'http://www.w3.org/2005/Atom')
+      assert.strictEqual(result.root.children.length, 3)
+
+      assert.strictEqual(result.root.children[0].name, 'entry')
+      assert.strictEqual(result.root.children[0].children[0].name, 'id')
+      assert.strictEqual(result.root.children[0].children[0].content, 'urn:uuid:CB6E2EA6-745B-431D-86F2-5A5E616C9661')
+      assert.strictEqual(result.root.children[0].children[1].name, 'title')
+      assert.strictEqual(result.root.children[0].children[2].name, 'content')
+      assert.strictEqual(result.root.children[0].children[2].children[0].name, 'UsagePoint')
+      assert.strictEqual(result.root.children[1].children[0].children[0].name, 'ReadingType')
+      assert.strictEqual(result.root.children[2].children[0].children[0].name, 'IntervalBlock')
 
       done()
     })

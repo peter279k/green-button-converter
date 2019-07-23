@@ -30,7 +30,8 @@
   },
   "devDependencies": {
     "mocha": "^6.1.4",
-    "nyc": "^14.1.1"
+    "nyc": "^14.1.1",
+    "xml-parser": "^1.2"
   },
   "pre-commit": [
     "standard"

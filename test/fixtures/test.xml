@@ -33,7 +33,7 @@
   </entry>
   <entry>
     <content>
-      <IntervalBLock xmlns="http://naesb.org/espi">
+      <IntervalBlock xmlns="http://naesb.org/espi">
         <interval>
           <duration>86400</duration>
           <start>1563440400</start>
@@ -45,7 +45,7 @@
           </timePeriod>
           <value>912</value>
         </IntervalReading>
-      </IntervalBLock>
+      </IntervalBlock>
     </content>
     <published>2019-07-22T16:38:13Z</published>
     <updated>2019-07-22T16:38:13Z</updated>
