@@ -1,5 +1,7 @@
 'use strict'
 
+var file = require('fs')
+var xmlParser = require('xml-parser')
 var assert = require('assert')
 var DataWriter = require('../lib/index').DataWriter
 var options = {
@@ -63,10 +65,39 @@ describe('data-writer', function() {
       let expectedFeed = '<feed xmlns="http://www.w3.org/2005/Atom">'
       let dataWriter = new DataWriter(options)
       let result = dataWriter.output(true)
-      console.log(result)
 
       assert.strictEqual(result.includes(expectedXmlHead), true)
       assert.strictEqual(result.includes(expectedFeed), true)
+
+      done()
+    })
+  })
+})
+
+describe('data-writer', function() {
+  describe('#output()', function() {
+    it('can validate Green Button XML Data tree', function(done) {
+      let xml = file.readFileSync(__dirname + '/./fixtures/test.xml', 'utf-8')
+      let result = xmlParser(xml)
+
+      assert.strictEqual(result.root.name, 'feed')
+      assert.strictEqual(result.root.attributes.xmlns, 'http://www.w3.org/2005/Atom')
+      assert.strictEqual(result.root.children.length, 8)
+
+      assert.strictEqual(result.root.children[0].name, 'id')
+      assert.strictEqual(result.root.children[0].content, 'urn:uuid:23AC4BEC-B3CD-41DC-B39B-2F8BCB4768EC')
+
+      assert.strictEqual(result.root.children[1].name, 'title')
+      assert.strictEqual(result.root.children[1].content, 'GreenButton User XXXX Feed')
+
+      assert.strictEqual(result.root.children[2].name, 'updated')
+      assert.strictEqual(result.root.children[2].content, '2012-10-24T00:00:00Z')
+
+      assert.strictEqual(result.root.children[3].children[6].children[0].name, 'UsagePoint')
+      assert.strictEqual(result.root.children[4].children[4].children[0].name, 'LocalTimeParameters')
+      assert.strictEqual(result.root.children[5].children[6].children[0].name, 'MeterReading')
+      assert.strictEqual(result.root.children[6].children[4].children[0].name, 'ReadingType')
+      assert.strictEqual(result.root.children[7].children[4].children[0].name, 'IntervalBlock')
 
       done()
     })
