@@ -9,7 +9,7 @@ var options = {
   'time_period_duration': 3600,
   'start_date': '2019-07-18 17:00:00',
   'interval_readings': [
-    {date: '2019-07-18 17:00:00', mwh: 912},
+    {date: '1563440400', mwh: 912},
   ],
   'power_of_ten_multiplier': 0,
   'uom': 72,
@@ -62,9 +62,11 @@ describe('data-writer', function() {
   describe('#output', function() {
     it('can get output Green button data with minified Atom XML', function(done) {
       let expectedXmlHead = '<?xml version="1.0" encoding="utf-8"?>'
-      let expectedFeed = '<feed xmlns="http://www.w3.org/2005/Atom">'
+      let expectedFeed = '<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'
       let dataWriter = new DataWriter(options)
       let result = dataWriter.output(true)
+
+      file.writeFileSync('./test.xml', result)
 
       assert.strictEqual(result.includes(expectedXmlHead), true)
       assert.strictEqual(result.includes(expectedFeed), true)
