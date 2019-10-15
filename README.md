@@ -12,7 +12,7 @@ var options = {
   'time_period_duration': 3600,
   'start_date': '2019-07-18 17:00:00',
   'interval_readings': [
-    {date: '2019-07-18 17:00:00', mwh: 912},
+    {date: '1563440400', mwh: 912},
   ],
   'power_of_ten_multiplier': 0,
   'uom': 72,
@@ -26,10 +26,18 @@ It will have following result:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>urn:uuid:23AC4BEC-B3CD-41DC-B39B-2F8BCB4768EC</id>
+  <title>GreenButton User XXXX Feed</title>
+  <updated>2012-10-24T00:00:00Z</updated>
+
   <entry>
     <id>urn:uuid:CB6E2EA6-745B-431D-86F2-5A5E616C9661</id>
-    <title/>
+    <link rel="self" href="RetailCustomer/9b6c7063/UsagePoint/01"/>
+    <link rel="up" href="RetailCustomer/9b6c7063/UsagePoint"/>
+    <link rel="related" href="RetailCustomer/9b6c7063/UsagePoint/01/MeterReading"/>
+    <link rel="related" href="LocalTimeParameters/01"/>
+    <title>Single family</title>
     <content>
       <UsagePoint xmlns="http://naesb.org/espi">
         <ServiceCategory>
@@ -40,11 +48,48 @@ It will have following result:
     <published>2019-07-22T16:38:13Z</published>
     <updated>2019-07-22T16:38:13Z</updated>
   </entry>
+
   <entry>
+    <id>urn:uuid:FE317A0A-F7F5-4307-B158-28A34276E862</id>
+    <link rel="self" href="LocalTimeParameters/01"/>
+    <link rel="up" href="LocalTimeParameters"/>
+    <title>DST For Taiwan</title>
+    <content>
+      <LocalTimeParameters xmlns="http://naesb.org/espi">
+        <dstEndRule>B40E2000</dstEndRule>
+        <dstOffset>3600</dstOffset>
+        <dstStartRule>360E2000</dstStartRule>
+        <tzOffset>-18000</tzOffset>
+      </LocalTimeParameters>
+    </content>
+    <published>2019-07-22T16:38:13Z</published>
+    <updated>2019-07-22T16:38:13Z</updated>
+  </entry>
+
+  <entry>
+    <id>urn:uuid:9BCDAB06-6690-46A3-9253-A451AF4077D8</id>
+    <link rel="self" href="RetailCustomer/9b6c7063/UsagePoint/01/MeterReading/01"/>
+    <link rel="up" href="RetailCustomer/9b6c7063/UsagePoint/01/MeterReading"/>
+    <link rel="related" href="RetailCustomer/9b6c7063/UsagePoint/01/MeterReading/01/IntervalBlock"/>
+    <link rel="related" href="ReadingType/07"/>
+    <title>Hourly Electricity Consumption</title>
+    <content>
+      <MeterReading xmlns="http://naesb.org/espi"/>
+    </content>
+    <published>2012-10-24T00:00:00Z</published>
+    <updated>2012-10-24T00:00:00Z</updated>
+  </entry>
+
+  <entry>
+    <id>urn:uuid:BEB04FF1-6294-4916-95AC-5597070C95D4</id>
+    <link rel="self" href="ReadingType/07"/>
+    <link rel="up" href="ReadingType"/>
+    <title>Energy Delivered (Wh)</title>
     <content>
       <ReadingType xmlns="http://naesb.org/espi">
         <accumulationBehaviour>4</accumulationBehaviour>
         <commodity>1</commodity>
+        <currency>840</currency>
         <dataQualifier>12</dataQualifier>
         <flowDirection>1</flowDirection>
         <intervalLength>3600</intervalLength>
@@ -55,12 +100,17 @@ It will have following result:
         <uom>72</uom>
       </ReadingType>
     </content>
-    <published>2019-07-22T16:38:13Z</published>
-    <updated>2019-07-22T16:38:13Z</updated>
+    <published>2012-10-24T00:00:00Z</published>
+    <updated>2012-10-24T00:00:00Z</updated>
   </entry>
+
   <entry>
+    <id>urn:uuid:FE317A0A-F7F5-4307-B158-28A34276E862</id>
+    <link rel="self" href="RetailCustomer/9b6c7063/UsagePoint/01/MeterReading/01/IntervalBlock/0173"/>
+    <link rel="up" href="RetailCustomer/9b6c7063/UsagePoint/01/MeterReading/01/IntervalBlock"/>
+    <title/>
     <content>
-      <IntervalBLock xmlns="http://naesb.org/espi">
+      <IntervalBlock xmlns="http://naesb.org/espi">
         <interval>
           <duration>86400</duration>
           <start>1563440400</start>
@@ -68,11 +118,11 @@ It will have following result:
         <IntervalReading>
           <timePeriod>
             <duration>3600</duration>
-            <start>2019-07-18 17:00:00</start>
+            <start>1563440400</start>
           </timePeriod>
           <value>912</value>
         </IntervalReading>
-      </IntervalBLock>
+      </IntervalBlock>
     </content>
     <published>2019-07-22T16:38:13Z</published>
     <updated>2019-07-22T16:38:13Z</updated>
