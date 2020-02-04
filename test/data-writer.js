@@ -77,7 +77,7 @@ describe('data-writer', function() {
 describe('data-writer', function() {
   describe('#output()', function() {
     it('can validate Green Button XML Data tree', function(done) {
-      let xml = file.readFileSync(__dirname + '/./fixtures/test.xml', 'utf-8')
+      let xml = file.readFileSync(__dirname + '/./fixtures/electric_data.xml', 'utf-8')
       let result = xmlParser(xml)
 
       assert.strictEqual(result.root.name, 'feed')

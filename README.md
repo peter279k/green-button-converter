@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/peter279k/green-button-converter.svg?branch=master)](https://travis-ci.org/peter279k/green-button-converter)
 
 ## Usage
-To generate a Green button data format, you can use following code snippets:
+To generate a Green button user electric data format, you can use following code snippets:
 
 ```JS
 var DataWriter = require('green-button-data-converter').DataWriter
@@ -126,6 +126,86 @@ It will have following result:
     </content>
     <published>2019-07-22T16:38:13Z</published>
     <updated>2019-07-22T16:38:13Z</updated>
+  </entry>
+</feed>
+```
+
+To generate Green Button customer Data, you can use following code snippets:
+
+```JS
+var CustomerDataWriter = require('green-button-data-converter').CustomerDataWriter
+var options = {
+  'account_id': 'Peter',
+  'meter_form_number': 'TD17234599',
+  'end_device_serial_number': '99123456',
+}
+
+var dataWriter = new CustomerDataWriter(options)
+console.log(dataWriter.output(true))
+```
+
+It will have following result:
+
+```XML
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <id>489C14BF-4426-11E6-A453-5463F700E189</id>
+  <link rel="self" href="DataCustodian/espi/1_1/resource/RetailCustomer/1161"/>
+  <title>Green Button Customer Feed</title>
+  <updated>2016-07-07T02:36:29</updated>
+  <entry>
+    <id>489D013A-4426-11E6-A454-5463F7007B38</id>
+    <link rel="self" href="DataCustodian/espi/1_1/resource/RetailCustomer/VJEWP31BE/Customer/1/CustomerAccount/1111111"/>
+    <link rel="up" href="DataCustodian/espi/1_1/resource/RetailCustomer/VJEWP31BE/Customer/1/CustomerAccount"/>
+    <link rel="related" href="DataCustodian/espi/1_1/resource/RetailCustomer/VJEWP31BE/Customer/1/CustomerAccount/1111111/CustomerAgreement"/>
+    <title>CustomerAccount information</title>
+    <content>
+      <CustomerAccount xmlns="http://naesb.org/espi/customer">
+        <accountId>Peter</accountId>
+      </CustomerAccount>
+    </content>
+    <updated>2016-07-07T02:36:29</updated>
+    <published>2016-07-07T02:36:29</published>
+  </entry>
+  <entry>
+    <id>489F8482-4426-11E6-A455-5463F70029FB</id>
+    <link rel="self" href="DataCustodian/espi/1_1/resource/RetailCustomer/VJEWP31BE/Customer/1/CustomerAccount/1111111/CustomerAgreement/NB6WRU"/>
+    <link rel="up" href="DataCustodian/espi/1_1/resource/RetailCustomer/VJEWP31BE/Customer/1/CustomerAccount/1111111/CustomerAgreement"/>
+    <title>CustomerAgreement information</title>
+    <content>
+      <CustomerAgreement xmlns="http://naesb.org/espi/customer">
+        <agreementId>Peter</agreementId>
+      </CustomerAgreement>
+    </content>
+    <updated>2016-07-07T02:36:29</updated>
+    <published>2016-07-07T02:36:29</published>
+  </entry>
+  <entry>
+    <id>48A16DBA-4426-11E6-A45A-5463F700E024</id>
+    <link rel="self" href="DataCustodian/espi/1_1/resource/RetailCustomer/VJEWP31BE/Customer/1/CustomerAccount/1111111/CustomerAgreement/NB6WRU/Meter/14106263"/>
+    <link rel="up" href="DataCustodian/espi/1_1/resource/RetailCustomer/VJEWP31BE/Customer/1/CustomerAccount/1111111/CustomerAgreement/NB6WRU/Meter"/>
+    <link rel="related" href="DataCustodian/espi/1_1/resource/RetailCustomer/VJEWP31BE/Customer/1/CustomerAccount/1111111/CustomerAgreement/NB6WRU/Meter/14106263/EndDevice"/>
+    <title>Meter form information</title>
+    <content>
+      <Meter xmlns="http://naesb.org/espi/customer">
+        <formNumber>TD17234599</formNumber>
+      </Meter>
+    </content>
+    <updated>2016-07-07T02:36:30</updated>
+    <published>2016-07-07T02:36:30</published>
+  </entry>
+  <entry>
+    <id>CB6E2EA6-745B-431D-86F2-5A5E616C9661</id>
+    <link rel="self" href="DataCustodian/espi/1_1/resource/RetailCustomer/VJEWP31BE/Customer/1/CustomerAccount/1111111/CustomerAgreement/NB6WRU/Meter/14106263/EndDevice/14106263"/>
+    <link rel="up" href="DataCustodian/espi/1_1/resource/RetailCustomer/VJEWP31BE/Customer/1/CustomerAccount/1111111/CustomerAgreement/NB6WRU/Meter/EndDevice"/>
+    <title>EndDevice information</title>
+    <content>
+      <EndDevice xmlns="http://naesb.org/espi/customer">
+        <serialNumber>99123456</serialNumber>
+      </EndDevice>
+    </content>
+    <updated>2016-07-07T02:36:30</updated>
+    <published>2016-07-07T02:36:30</published>
   </entry>
 </feed>
 ```
